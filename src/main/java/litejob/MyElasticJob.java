@@ -11,8 +11,22 @@ public class MyElasticJob implements SimpleJob {
 
     public void execute(ShardingContext shardingContext) {
 
-        logger.info("开始执行UserStatJob");
-        System.out.println("");
+        logger.info("开始执行 My Job");
 
+            switch (shardingContext.getShardingItem()) {
+            case 0:
+                logger.info("Sharding Item 0=" + shardingContext.getShardingParameter());
+                break;
+            case 1:
+                logger.info("Sharding Item 1=" + shardingContext.getShardingParameter());
+                break;
+            case 2:
+                logger.info("Sharding Item 2=" + shardingContext.getShardingParameter());
+                break;
+                case 3:
+                    logger.info("Sharding Item 3=" + shardingContext.getShardingParameter());
+                    break;
+        }
+        //System.out.println("");
     }
 }
